@@ -64,8 +64,8 @@ export default api
     headers: { 'Content-Type': 'application/json' },
     body: valor
   };
-  const re = await api(requisicao);
-  console.log(re)
+  const retApi = await api(requisicao);
+  console.log(retApi.res)
 }
 teste() */
 
@@ -85,7 +85,7 @@ teste() */
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: corpo
   };
-  const re = await api(requisicao);
-  console.log(re)
+  const retApi = await api(requisicao);
+  console.log(retApi.res)
 }
 teste() */
