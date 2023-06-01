@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 
 async function cryptEnc(inf) {
-    let ret = { 'ret': false };
+    const ret = { 'ret': false };
     try {
         const res = CryptoJS.AES.encrypt(inf.tex, inf.pas).toString();
         if (res == '') {

@@ -17,7 +17,7 @@ async function run(inf) {
         };
         // ------------------------------------------------------------------------
         async function cryptDec(inf) {
-            let ret = { 'ret': false };
+            const ret = { 'ret': false };
             try {
                 const res = CryptoJS.AES.decrypt(inf.tex, inf.pas).toString(CryptoJS.enc.Utf8);
                 if (res == '') { ret['msg'] = `DECRYPT: ERRO`; } else {
@@ -28,7 +28,7 @@ async function run(inf) {
             } catch (error) { ret['msg'] = `DECRYPT: ERRO`; } return ret
         };
         async function cryptEnc(inf) {
-            let ret = { 'ret': false };
+            const ret = { 'ret': false };
             try {
                 const res = CryptoJS.AES.encrypt(inf.tex, inf.pas).toString();
                 if (res == '') { ret['msg'] = `ENCRYPT: ERRO`; } else {

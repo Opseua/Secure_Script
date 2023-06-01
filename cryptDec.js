@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 
 async function cryptDec(inf) {
-    let ret = { 'ret': false };
+    const ret = { 'ret': false };
     try {
         const res = CryptoJS.AES.decrypt(inf.tex, inf.pas).toString(CryptoJS.enc.Utf8);
         if (res == '') {
