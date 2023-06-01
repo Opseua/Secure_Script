@@ -1,1 +1,0 @@
-|| Number(retBingDaily.res == retDataHoraAMD)
