@@ -40,7 +40,7 @@ inf['path'] = inf.path.replace(new RegExp("file:\/\/\/", 'g'), '');
 inf['conf'] = 'config.json';
 inf['passw'] = '12345678';
 
-//fs.writeFileSync(inf.conf, '{}');
+fs.writeFileSync(inf.conf, '{}');
 const configFile = fs.readFileSync(inf.conf);
 const config = JSON.parse(configFile);
 
@@ -81,7 +81,7 @@ async function listFiles() {
   await list(inf.path, ret);
 
   fs.writeFileSync(inf.conf, JSON.stringify(ret, null, 2));
-  console.log('LISTAR ARQUIVO: OK');
+  console.log('LISTAR ARQUIVOS: OK');
 }
 listFiles();
 
