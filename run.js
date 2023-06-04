@@ -1,8 +1,12 @@
-import CryptoJS from 'crypto-js';
-import md5 from 'js-md5';
-import fs from 'fs';
+//import CryptoJS from 'crypto-js';
+const CryptoJS = await import('crypto-js');
+//import md5 from 'js-md5';
+const md5 = await import('js-md5');
+//import fs from 'fs';
+const fs = await import('fs');
 const pt = import.meta.url
-import path from 'path';
+//import path from 'path';
+const path = await import('path');
 const configFile = fs.readFileSync('config.json');
 const config = JSON.parse(configFile);
 

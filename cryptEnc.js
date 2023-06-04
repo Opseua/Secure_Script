@@ -1,4 +1,5 @@
-import CryptoJS from 'crypto-js';
+//import CryptoJS from 'crypto-js';
+const CryptoJS = await import('crypto-js');
 
 async function cryptEnc(inf) {
     const ret = { 'ret': false };
